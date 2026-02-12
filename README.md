@@ -1,170 +1,135 @@
-# CourtVision.Ai
-An AI-powered mobile application that turns a smartphone into a real-time tennis referee. Designed for recreational players who don’t have access to line judges or Hawk-Eye systems.
-📌 Overview
+# CourtVision.Ai 🎾🏸
 
-AI Referee for Amateurs is a mobile app that uses a smartphone camera placed at mid-court to automatically detect:
+> **Dual-Sport AI Analysis System (Tennis & Badminton)**  
+> *Professional Line Calling & Analytics using YOLOv11 & Computer Vision*
 
-✅ Out-of-bounds shots
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg) ![Status](https://img.shields.io/badge/status-active_development-orange.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg) ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
 
-✅ Foot faults
+## 📖 Overview
 
-✅ Ball trajectory
+**CourtVision.Ai** is a cutting-edge mobile application and AI system that turns a standard smartphone into a professional-grade real-time referee and analytics platform. Following the architectural principles of industry leaders like SwingVision, this system adapts advanced computer vision for a dual-sport setup: **Tennis** and **Badminton**.
 
-✅ Real-time line calls
+Designed for recreational players who lack access to expensive Hawk-Eye systems, CourtVision.Ai provides fair, instant, and unbiased line calls, eliminating disputes and bringing a professional vibe to every match.
 
-The app provides fair, instant, and unbiased decisions — making amateur matches more professional and dispute-free.
+---
 
-🚀 Problem Statement
+## 🚀 Problem & Solution
 
-Recreational tennis players often face:
+### The Problem
+Recreational players often face:
+- ❌ **Disputes**: Arguments over line calls interrupt the flow of the game.
+- ❌ **Unfairness**: Lack of neutral officiating leads to frustration.
+- ❌ **Cost**: Professional systems (Hawk-Eye) are prohibitively expensive and unavailable for local courts.
 
-Disputes over line calls
+### The Solution
+A "Visual Brain" in your pocket. By placing a smartphone at mid-court, CourtVision.Ai uses:
+- ✅ **Computer Vision**: To track the ball/shuttlecock in real-time.
+- ✅ **Spatial Mapping**: To understand court boundaries with centimeter-level precision.
+- ✅ **Instant Feedback**: Audio and visual cues for "IN", "OUT", and "FOOT FAULT".
 
-No access to professional review systems
+---
 
-Unfair advantages due to incorrect judgments
+## 🏗️ The 5-Phase "Vibe Coding" Blueprint
 
-Interruptions during gameplay
+Our development follows a structured, modular approach to ensure robustness and scalability.
 
-Professional systems like Hawk-Eye are expensive and unavailable to amateurs.
+### Phase 1: The "Visual Brain" (Detection) 👁️
+- **Dual-Model Approach**: Separate YOLOv11 models for Tennis (ball) and Badminton (shuttlecock) to handle distinct physics.
+- **Source**: Fine-tuned models from Roboflow Universe.
+- **Integration**: TensorFlow Lite (TFLite) for efficient edge processing on mobile devices.
+- **Core Function**: High-speed tracking and trajectory visualization (5-frame tail).
 
-💡 Solution
+### Phase 2: The "Spatial Brain" (Court Mapping) 📐
+- **Keypoint Detection**: OpenCV-based identification of court corners and line intersections.
+- **Perspective Correction**: Homography matrix transformation converting 2D video feeds into a "flat" 3D world coordinate system.
+- **Boundary Logic**: Precise "IN" vs "OUT" regions mapped to standard court dimensions.
 
-Place a smartphone at mid-court on a tripod.
-The app uses computer vision and AI to:
+### Phase 3: The "Referee" (Real-Time Call) ⚖️
+- **Physics-Based Decision Engine**:
+  - **Tennis**: Detects "Bounce" events (V-shape trajectory inflection).
+  - **Badminton**: Detects "Floor Hits" (Altitude $Z$ reaches 0).
+- **Feedback**: Instant "OUT" audio trigger and on-screen score updates.
+- **Foot Faults**: Monitors the baseline during service.
 
-Detect the tennis ball
+### Phase 4: The "Analyst" (Post-Match Intelligence) 🧠
+- **Data Logging**: Exports detailed match CSVs: `[Timestamp, Shot_Type, Speed, Landing_Zone, Outcome]`.
+- **Pattern Recognition**: Custom AI agents (via Edge Impulse/Vertex AI) analyze play styles.
+- **Pro Insights**: "You lose 70% of points on deep cross-court shots."
 
-Track its trajectory
+### Phase 5: The "Multi-Sport" Tech Stack 💻
 
-Identify court boundary lines
+| Component | Technology |
+| :--- | :--- |
+| **Object Detection** | Ultralytics YOLOv11 / Custom Models |
+| **Computer Vision** | OpenCV, Homography, Perspective Transform |
+| **ML Framework** | TensorFlow / PyTorch / TFLite (Mobile) |
+| **App Interface** | Lovable.dev / Flutter / React Native |
+| **Language** | Python (Core Logic) |
+| **Data Platform** | Supabase (Logs & Stats) |
+| **AI Training** | Edge Impulse (Custom Logic) |
 
-Determine if the ball is IN or OUT
+---
 
-Detect foot faults during serves
+## 🎯 Key Features
 
-Provide instant visual and audio feedback
+- **🎥 Real-Time Tracking**: Frame-by-frame analysis of ball/shuttlecock trajectory.
+- **📍 Precise Line Calling**: Automated decision-making for boundary hits.
+- **🔊 Audio Referee**: Instant voice announcements ("Out!", "Fault!").
+- **📊 Smart Analytics**: (Upcoming) Match stats, heatmaps, and speed analysis.
+- **📱 Accessible**: Works with just a smartphone and a tripod.
 
-🧠 Tech Stack
+---
 
-Python
+## 🛠️ Installation (Prototype)
 
-OpenCV
+To run the Python-based prototype:
 
-YOLO / Custom Object Detection Model
-
-TensorFlow / PyTorch
-
-Mobile Integration (Flutter / React Native – Optional)
-
-Real-time Video Processing
-
-Homography & Perspective Transformation
-
-🏗️ System Architecture
-Camera Input
-     ↓
-Ball Detection Model
-     ↓
-Trajectory Tracking
-     ↓
-Court Line Detection
-     ↓
-Boundary Intersection Logic
-     ↓
-Decision Engine (IN / OUT / FOOT FAULT)
-     ↓
-Audio + Visual Feedback
-
-📲 How It Works
-
-Mount phone at mid-court.
-
-Start match recording.
-
-App detects court lines automatically.
-
-AI tracks ball frame-by-frame.
-
-When ball lands:
-
-Calculates landing coordinate.
-
-Compares with court boundaries.
-
-Announces result instantly.
-
-🎯 Features
-
-🎥 Real-time ball tracking
-
-📍 Precise boundary detection
-
-🔊 Audio call (“Out!”, “In!”, “Foot Fault!”)
-
-📊 Match analytics (optional future feature)
-
-📱 Works with just a smartphone
-
-💰 Affordable alternative to professional systems
-
-📈 Impact
-
-Reduces arguments between players
-
-Makes amateur matches more professional
-
-Encourages fair play
-
-Affordable officiating system
-
-Useful for schools, clubs, and local tournaments
-
-🛠️ Future Improvements
-
-Multi-camera support
-
-Score tracking integration
-
-Slow-motion replay
-
-Cloud-based analytics
-
-AI training mode for coaching
-
-Doubles court support
-
-🧪 Installation (Prototype Version)
+```bash
+# Clone the repository
 git clone https://github.com/TeamOpaque/CourtVision.Ai
-cd ai-referee-tennis
-pip install -r
-python main.py
+cd CourtVision.Ai
 
-📂 Project Structure
-ai-referee-tennis/
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the main application
+python main.py
+```
+
+### Project Structure
+```
+CourtVision.Ai/
 │
-├── models/
-├── data/
-├── main.py
-├── detection.py
-├── tracking.py
-├── utils.py
+├── models/          # YOLO & TFLite models
+├── data/            # Test videos and datasets
+├── main.py          # Entry point
+├── detection.py     # Object detection logic
+├── tracking.py      # Trajectory tracking
+├── referee.py       # In/Out logic
+├── utils.py         # Helper functions
 ├── requirements.txt
 └── README.md
+```
 
-🤝 Contribution
 
-Contributions are welcome!
+## 🤝 Contribution
 
-Fork the repository
+Contributions are welcome! We are building this for the love of the game.
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
-Create a new branch
+---
 
-Commit your changes
+## 👤 Authors
 
-Submit a pull request
-
-👤 Author
-
+**Team Opaque**  
 Developed for hackathons and amateur sports innovation.
-Created by Madhav Gupta and Jatin Jain
+
+- **Madhav Gupta**
+- **Jatin Jain**
+
+---
+*Built with ❤️ and AI Assistance*
