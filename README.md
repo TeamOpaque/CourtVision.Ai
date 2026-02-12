@@ -135,7 +135,7 @@ AI training mode for coaching
 Doubles court support
 
 🧪 Installation (Prototype Version)
-git clone https://github.com/madHAVgupta2008/COURTVISION.AI
+git clone https://github.com/TeamOpaque/CourtVision.Ai
 cd ai-referee-tennis
 pip install -r
 python main.py
