@@ -1,7 +1,7 @@
 # CourtVision.Ai 🎾🏸
 
 > **Dual-Sport AI Analysis System (Tennis & Badminton)**  
-> *Professional Line Calling & Analytics using YOLOv11 & Computer Vision*
+> *Professional Line Calling & Analytics using YOLOv26 & Computer Vision*
 
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg) ![Status](https://img.shields.io/badge/status-active_development-orange.svg) ![License](https://img.shields.io/badge/license-MIT-green.svg) ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
 
@@ -60,7 +60,7 @@ Our development follows a structured, modular approach to ensure robustness and 
 
 | Component | Technology |
 | :--- | :--- |
-| **Object Detection** | Ultralytics YOLOv11 / Custom Models |
+| **Object Detection** | Ultralytics YOLOv26 / Custom Models |
 | **Computer Vision** | OpenCV, Homography, Perspective Transform |
 | **ML Framework** | TensorFlow / PyTorch / TFLite (Mobile) |
 | **App Interface** | Lovable.dev / Flutter / React Native |
