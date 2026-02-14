@@ -34,7 +34,7 @@ A "Visual Brain" in your pocket. By placing a smartphone at mid-court, CourtVisi
 Our development follows a structured, modular approach to ensure robustness and scalability.
 
 ### Phase 1: The "Visual Brain" (Detection) 👁️
-- **Dual-Model Approach**: Separate YOLOv11 models for Tennis (ball) and Badminton (shuttlecock) to handle distinct physics.
+- **Dual-Model Approach**: Separate YOLOv26 models for Tennis (ball) and Badminton (shuttlecock) to handle distinct physics.
 - **Source**: Fine-tuned models from Roboflow Universe.
 - **Integration**: TensorFlow Lite (TFLite) for efficient edge processing on mobile devices.
 - **Core Function**: High-speed tracking and trajectory visualization (5-frame tail).
