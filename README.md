@@ -130,6 +130,9 @@ Developed for hackathons and amateur sports innovation.
 
 - **Madhav Gupta**
 - **Jatin Jain**
+- **Praglav Bhatt**
+- **Madhav Khandelwal**
+  
 
 ---
 *Built with ❤️ and AI Assistance*
